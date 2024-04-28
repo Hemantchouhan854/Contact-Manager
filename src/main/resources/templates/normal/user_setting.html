@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<div class="card">
+
+				<div class="card-body">
+
+					<form action="#" th:action="@{/user/process-password}"
+						th:method="post">
+						<p class="text-center">*You can change your profile password
+							here*</p>
+						Enter Your old Password:<br> <input type="password"
+							name="oldPassword" /><br> <br> Enter new Password:<br>
+						<input type="password" name="newPassword" /> <br> <br>
+						Re-enter new Password:<br> <input type="password"
+							name="reEnterPassword" /> <br> <br>
+						<div class="btn ">
+							<button type="submit" class="btn btn-primary text-center"
+								href="#">Change Password</button>
+						</div>
+						
+					</form>
+
+					<form th:action="@{/user/verify}"
+						th:method="post">
+						<div class="container text-right">
+							<p>Enter Password to Delete Account</p>
+							<input name="password" type="password" placeholder="Enter Password Here" /><br>
+							<button class="btn btn-success mt-2">Verify Password</button>
+							<br> <a th:if="${permission}" 
+								class="btn btn-danger  mt-2" th:onclick="|deleteUser(${id})|">Delete</a>
+						</div>
+					</form>
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+	</section>
+</body>
+</html>

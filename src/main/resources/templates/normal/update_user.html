@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-4 mt-3 ml-3">
+			<div class="card-body">
+				<h1 class="text-center">Update Your Information</h1>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-10 offset-md-1">
+
+							<form action="#" th:object="${user}"
+								enctype="multipart/form-data" method="post"
+								th:action="@{/user/process-user-update}" class="mt-2">
+
+								<!-- First Name -->
+
+								<div class="input-group">
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input th:value="${user.name}" required="required"
+										type="text" id="firstName" name="name"
+										placeholder="Enter Name here" class="form-control" />
+
+
+								</div>
+								
+
+								
+
+								
+
+								<!-- contact description -->
+
+								<div class="form-group mt-3">
+
+									<textarea th:text="${user.about}"
+										placeholder="Enter contact description here"
+										name="description" class="form-control" rows="10"></textarea>
+
+								</div>
+								<div class="container">
+									<img style="width: 200px;height: 200px; "class="img-fluid my_profile_picture" src="#" th:src="@{'/img/'+${user.imageUrl}}" alt="image" />
+
+								</div>
+								
+								<p>Select your new profile here</p>
+
+								<!-- contact image -->
+
+								<div class="custom-file">
+									<input type="file" name=profileImage />
+								</div>
+
+								<div class="container text-center">
+									<button class="btn btn-outline-primary">Update</button>
+								</div>
+
+
+
+
+
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+</body>
+</html>
